@@ -19,14 +19,14 @@ void	write_ee(uint16_t addr, uint8_t c)
 	while (EECR & (1 << EEPE)); //Wait for a potential write instr to be finisehd to read
 	EEAR = addr & 0x3ff; //Fill EEAR with my address masked to fill the 10bits register
 	EEDR = c; // Fill the EDDR register with the data we want to write
-	EECR |= (1 << EEMPE); // Enabling master write, needed before setting EEPE to write, action that will begin the operation
+	EECR = (1 << EEMPE); //| (1 << EEMPE); // Enabling master write, needed before setting EEPE to write, action that will begin the operation
 	EECR |= (1 << EEPE);
 }
 
 int main()
 {
 	//Button pin is in out state
-	DDRD &= ~(1 << PD3);
+	DDRD &= ~(1 << PD2);
 	//Led pins are in out state
 	DDRB |= (1 << PB0) | (1 << PB1) | (1 << PB2) | (1 << PB3);
 	uint8_t c;
@@ -45,7 +45,7 @@ int main()
 	//Read magic number 
 	for (;;)
 	{
-		if (!(PIND & (1 << PD3)))
+		if (!(PIND & (1 << PD2)))
 		{
 			c++;
 			write_ee(0x2, c);

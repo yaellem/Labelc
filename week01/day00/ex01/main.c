@@ -186,7 +186,7 @@ void USART_Init( unsigned int ubrr)
 int main()
 {
 	//Button pin is in out state
-	DDRD &= ~(1 << PD3);
+//	DDRD &= ~(1 << PD3);
 	USART_Init(8);
 	for (;;)
 	{

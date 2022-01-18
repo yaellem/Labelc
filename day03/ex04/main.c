@@ -147,35 +147,6 @@ uint8_t	ask_username(void)
 
 }
 
-void	enter_prompt()
-{
-	uint8_t buf[MAXLEN];
-	uint32_t i = 0;
-	char c;
-
-	ft_pustr("> ");
-	while ((c = uart_rx()) != 13)
-	{
-		if (c == 127 && i > 0)
-		{
-			ft_putstr("\b \b");
-			i--;
-		}
-		else if (c != 127 && c != 27 && c >= 32) 
-		{
-			buf[i++] = c;
-			uart_tx(c);
-		}
-		else if (c == 27)
-		{
-			c = uart_rx();
-			c = uart_rx();
-		}
-		
-	}
-	while (
-}
-
 int main( void )
 {
 	DDRB = (1 << PB3);
