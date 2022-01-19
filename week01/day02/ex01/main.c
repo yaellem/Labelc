@@ -42,14 +42,24 @@ int main()
 
 	for (;;)
 	{
-		uint16_t new = adc_read() * 0.08;
-			itoa(new, str, 10);
-			uart_tx(str[0]);
-			uart_tx(str[1]);
-			uart_tx(str[2]);
-			uart_tx('\n');
-			uart_tx('\r');
-			_delay_ms(1000);
+		//row value
+		uint16_t new = (((adc_read())));// - (273 + 100 - 0x0002)) * 128) / 0x0003) +25;
+		itoa(new, str, 16);
+		uart_tx(str[0]);
+		uart_tx(str[1]);
+		uart_tx(str[2]);
+		uart_tx('\n');
+		uart_tx('\r');
+		_delay_ms(1000);
+		//celsius value
+		uint16_t cels = (((new - (273 + 100 - 0x0002)) * 128) / 0x0003) +25;
+		itoa(cels, str, 10);
+		uart_tx(str[0]);
+		uart_tx(str[1]);
+		uart_tx('\n');
+		uart_tx('\r');
+		_delay_ms(1000);
+
 	}
 	return 0;
 }
