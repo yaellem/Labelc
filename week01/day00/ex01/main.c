@@ -88,11 +88,11 @@ void	print_dump()
 		uart_tx(' ');
 		uart_tx(' ');
 		c = read_ee(addr) & 0xff;
-//		hexh = hex[c & 0xf0];
-//		hexl = hex[c & 0x0f];
+		hexh = hex[(c & 0xf0) >> 4];
+		hexl = hex[(c & 0x0f)];
 		uart_tx(hexh);
 		uart_tx(hexl);
-		uart_tx(c & 0xff);
+//		uart_tx(c & 0xff);
 		uart_tx(' ');
 		addr++;
 	}

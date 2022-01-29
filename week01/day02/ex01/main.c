@@ -44,7 +44,7 @@ int main()
 	{
 		//row value
 		uint16_t new = (((adc_read())));// - (273 + 100 - 0x0002)) * 128) / 0x0003) +25;
-		itoa(new, str, 16);
+		itoa(new, str, 10);
 		uart_tx(str[0]);
 		uart_tx(str[1]);
 		uart_tx(str[2]);
