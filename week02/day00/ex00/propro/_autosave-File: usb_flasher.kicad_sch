@@ -124,12 +124,12 @@
       )
       (symbol "ca_1_1"
         (pin passive line (at -2.286 -0.0508 0) (length 2)
-          (name "" (effects (font (size 0.5 0.5))))
-          (number "" (effects (font (size 0.5 0.5))))
+          (name "~" (effects (font (size 0.5 0.5))))
+          (number "1" (effects (font (size 0.5 0.5))))
         )
         (pin passive line (at 2.286 0 180) (length 2)
-          (name "" (effects (font (size 0.5 0.5))))
-          (number "" (effects (font (size 0.5 0.5))))
+          (name "~" (effects (font (size 0.5 0.5))))
+          (number "2" (effects (font (size 0.5 0.5))))
         )
       )
     )
@@ -228,7 +228,6 @@
   )
 
 
-
   (no_connect (at 36.7284 32.131) (uuid f447e148-1693-4995-b10f-3ef20a2dc1f2))
 
   (wire (pts (xy 36.6776 29.8958) (xy 41.1988 29.8958))
@@ -268,8 +267,8 @@
     (property "Datasheet" "" (id 3) (at 26.2636 26.1874 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (pin "" (uuid fa0e7d02-74c9-48c8-9171-8ae71482b877))
-    (pin "" (uuid fa0e7d02-74c9-48c8-9171-8ae71482b877))
+    (pin "1" (uuid abdf1fc0-a5f4-4a26-adc8-ba7216defb10))
+    (pin "2" (uuid 69814d9b-0367-4de8-9718-43b37031d240))
   )
 
   (symbol (lib_id "Mylib:Connector") (at 34.6456 29.5402 0) (unit 1)
